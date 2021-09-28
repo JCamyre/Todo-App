@@ -6,8 +6,12 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 
 // api end points
-api.get("/api", (req, res) => {
+app.get("/api", (req, res) => {
     res.json({ message: "yo" });
+});
+
+app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../frontend/build', 'index.html'));
 });
 
 app.listen(PORT, () => {
