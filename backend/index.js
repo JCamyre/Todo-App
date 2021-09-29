@@ -14,7 +14,7 @@ app.get("/api", (req, res) => {
 
 app.post("/api/submit-form", (req, res) => {
     // could use events instead of callbackss
-    new formidable.IncomingForm().parse(req, (err, fields, files)    
+    new formidable.IncomingForm().parse(req)   
         .on('fileBegin', (name, file) => {
             // changing the file path to our uploads folder
             file.path = __dirname + '/uploads' + file.name
@@ -34,7 +34,7 @@ app.post("/api/submit-form", (req, res) => {
         })
         .on('end', () => {
             res.end()
-        }));
+        });
     });
 
 app.get("*", (req, res) => {
