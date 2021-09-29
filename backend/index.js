@@ -17,7 +17,7 @@ app.post("/api/submit-form", (req, res) => {
     new formidable.IncomingForm().parse(req)   
         .on('fileBegin', (name, file) => {
             // changing the file path to our uploads folder
-            file.path = __dirname + '/uploads' + file.name
+            file.path = __dirname + '/uploads/' + file.name
         })
         .on('field', (name, field) => {
             console.log('Field', name, field)
