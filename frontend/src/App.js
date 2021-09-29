@@ -20,8 +20,10 @@ function App() {
 
   return (
     <div className="App">
-      <form method="POST" action="/api/submit-form" enctype="multipart/form-data">
-        <input type="file" name="document" />
+      <form method="POST" action="/api/upload" enctype="multipart/form-data">
+        <input type="file" name="profilePicture" />
+        <input type='file' name='name' />
+        <input type='file' name='bio' />
         <input type='submit' />
       </form>
       <header className="App-header">
